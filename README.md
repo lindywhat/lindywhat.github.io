@@ -1,6 +1,6 @@
-# Lindy What? Lindy Hop Nijmegen – website
+# Lindy What?! Lindy Hop Nijmegen – website
 
-The website of [Lindy What? Lindy Hop Nijmegen](https://www.lindynijmegen.org/), built with
+The website of [Lindy What?! Lindy Hop Nijmegen](https://www.lindynijmegen.org/), built with
 [Jekyll](https://jekyllrb.com/) and hosted for free on GitHub Pages.
 
 **Want to change some text, add an event or write a news post?
