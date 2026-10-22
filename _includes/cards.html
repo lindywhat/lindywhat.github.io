@@ -1,0 +1,25 @@
+{%- comment -%}
+  A row of cards (used for the three blocks on the homepage and the team on
+  the About us page). The cards are listed in the page's front matter
+  under `cards:`, see about-us.md for an example.
+{%- endcomment -%}
+<div class="cards">
+  {%- for card in include.cards %}
+  <div class="card">
+    <div class="card-inner">
+      <h3 class="card-title">{{ card.title }}</h3>
+      {%- if card.image %}
+      <div class="card-image">
+        {% if card.link %}<a href="{{ card.link | relative_url }}">{% endif %}<img src="{{ card.image | relative_url }}" alt="{{ card.title }}">{% if card.link %}</a>{% endif %}
+      </div>
+      {%- endif %}
+      {%- if card.text %}
+      <div class="card-text">{{ card.text | markdownify }}</div>
+      {%- endif %}
+      {%- if card.button %}
+      <div class="card-more"><a href="{{ card.link | relative_url }}">{{ card.button }}</a></div>
+      {%- endif %}
+    </div>
+  </div>
+  {%- endfor %}
+</div>

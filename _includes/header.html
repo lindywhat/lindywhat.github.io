@@ -1,0 +1,25 @@
+{%- assign lang = page.lang | default: site.lang -%}
+{%- assign menu = site.data.navigation[lang] -%}
+<header class="header">
+  <div class="nav-ribbon">
+    <div class="nav-block">
+      <button class="menu-toggle" aria-expanded="false" aria-controls="main-menu">
+        <span class="menu-toggle-icon"><span></span><span></span><span></span></span>
+        Navigation
+      </button>
+
+      <a class="logo" href="{{ menu.left[0].url | relative_url }}">
+        <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="{{ site.title }}" width="176" height="175">
+      </a>
+
+      <nav id="main-menu" class="main-menu" aria-label="Main menu">
+        <ul class="menu menu-left">
+          {% for item in menu.left %}{% include menu-item.html item=item %}{% endfor %}
+        </ul>
+        <ul class="menu menu-right">
+          {% for item in menu.right %}{% include menu-item.html item=item %}{% endfor %}
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>

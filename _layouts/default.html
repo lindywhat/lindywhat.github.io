@@ -1,0 +1,32 @@
+<!doctype html>
+{%- assign lang = page.lang | default: site.lang -%}
+<html lang="{{ lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% seo title=false %}
+  <title>{% if page.url == "/" %}Lindy Hop Nijmegen - Swing dance lessons and socials{% else %}{{ page.title }} - {{ site.title }}{% endif %}</title>
+  <link rel="preload" href="{{ '/assets/fonts/bazar.woff' | relative_url }}" as="font" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="{{ '/assets/css/lindy.css' | relative_url }}">
+  <link rel="icon" href="{{ '/assets/images/logo.png' | relative_url }}">
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
+</head>
+<body class="lang-{{ lang }}">
+  <div class="site">
+    <div class="topbar">
+      <a href="{{ '/' | relative_url }}" title="English"><img src="{{ '/assets/images/flag-en.png' | relative_url }}" alt="English" width="16" height="11"></a>
+      <a href="{{ '/nl/' | relative_url }}" title="Nederlands"><img src="{{ '/assets/images/flag-nl.png' | relative_url }}" alt="Nederlands" width="16" height="11"></a>
+    </div>
+
+    {% include header.html %}
+
+    <div class="main-bg">
+      {{ content }}
+    </div>
+
+    {% include footer.html %}
+  </div>
+
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>

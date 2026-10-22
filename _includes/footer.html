@@ -1,0 +1,47 @@
+{%- assign lang = page.lang | default: site.lang -%}
+{%- assign menu = site.data.navigation[lang] -%}
+<section class="footer-area">
+  <div class="footer-columns">
+    <aside class="footer-column">
+      <h3 class="widget-title">{% if lang == "nl" %}Volgend event{% else %}Next event{% endif %}</h3>
+      {% include event-list.html limit=1 compact=true %}
+    </aside>
+
+    <aside class="footer-column">
+      <h3 class="widget-title">Information</h3>
+      <ul class="star-list">
+        {% for link in menu.footer %}
+        <li><a href="{{ link.url | relative_url }}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </aside>
+
+    <aside class="footer-column">
+      <h3 class="widget-title">Newsletter</h3>
+      <form class="newsletter" action="{{ site.newsletter_form }}" method="post" target="_blank">
+        <div class="newsletter-card">
+          <label for="newsletter-email">Email:</label>
+          <input type="email" name="EMAIL" id="newsletter-email" required>
+          <span class="newsletter-stamp" aria-hidden="true">&#9993;</span>
+        </div>
+        <!-- Hidden field that stops spam robots from signing up -->
+        <div style="position:absolute; left:-5000px;" aria-hidden="true"><input type="text" name="{{ site.newsletter_hidden_field }}" tabindex="-1" value=""></div>
+        <button type="submit" class="newsletter-button">Subscribe</button>
+      </form>
+    </aside>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="copyright">{{ site.copyright }}</div>
+  <div class="social">
+    <a class="social-link" href="{{ site.facebook }}" title="Facebook">
+      <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M14 8V6.2c0-.8.2-1.2 1.4-1.2H17V2h-2.6C11.3 2 10 3.5 10 6v2H8v3h2v11h4V11h2.7l.3-3h-3z"/></svg>
+      <span class="sr-only">Facebook</span>
+    </a>
+    <a class="social-link" href="mailto:{{ site.email }}" title="E-mail">
+      <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M2 5h20v14H2V5zm2 2v.5l8 5 8-5V7H4zm16 2.8-8 5-8-5V17h16V9.8z"/></svg>
+      <span class="sr-only">E-mail</span>
+    </a>
+  </div>
+</footer>

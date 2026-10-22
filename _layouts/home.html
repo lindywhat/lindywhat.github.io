@@ -1,0 +1,41 @@
+---
+layout: default
+---
+{%- assign lang = page.lang | default: site.lang -%}
+{% if page.slides %}
+<section class="slider" aria-label="Photos">
+  {%- for slide in page.slides %}
+  <figure class="slide{% if forloop.first %} active{% endif %}">
+    {% if slide.link %}<a href="{{ slide.link | relative_url }}">{% endif %}
+    <img src="{{ slide.image | relative_url }}" alt="{{ slide.caption }}"{% unless forloop.first %} loading="lazy"{% endunless %}>
+    {% if slide.caption %}<figcaption class="slide-caption slide-caption-{{ forloop.index }}">{{ slide.caption }}</figcaption>{% endif %}
+    {% if slide.link %}</a>{% endif %}
+  </figure>
+  {%- endfor %}
+  <button class="slider-arrow slider-prev" aria-label="Previous photo">&#8249;</button>
+  <button class="slider-arrow slider-next" aria-label="Next photo">&#8250;</button>
+</section>
+{% endif %}
+
+<main class="paper">
+  <div class="box-info">
+    <h1>{{ page.welcome_title }}</h1>
+    <h2>{{ page.welcome_subtitle }}</h2>
+  </div>
+
+  {% if page.cards %}{% include cards.html cards=page.cards %}{% endif %}
+
+  <article class="content">
+    {{ content }}
+
+    {% if page.latest_news %}
+    <hr>
+    <h2>{% if lang == "nl" %}Laatste nieuws{% else %}Latest news{% endif %}</h2>
+    {% for post in site.posts limit: page.latest_news %}{% include post-summary.html post=post %}{% endfor %}
+    {% endif %}
+
+    <hr>
+    <h2>{% if lang == "nl" %}Agenda{% else %}Calendar{% endif %}</h2>
+    {% include event-list.html limit=2 %}
+  </article>
+</main>

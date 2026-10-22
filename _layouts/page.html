@@ -1,0 +1,14 @@
+---
+layout: default
+---
+<div class="page-title-area">
+  <h1 class="page-title">{{ page.title }}</h1>
+</div>
+
+<main class="paper">
+  <article class="content">
+    {{ content }}
+  </article>
+
+  {% if page.cards %}{% include cards.html cards=page.cards %}{% endif %}
+</main>

@@ -1,0 +1,8 @@
+{%- assign post = include.post -%}
+<div class="post-summary">
+  {% if post.image %}<a href="{{ post.url | relative_url }}"><img class="post-summary-image" src="{{ post.image | relative_url }}" alt="" loading="lazy"></a>{% endif %}
+  <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+  <p class="post-date">{{ post.date | date: "%-d %B %Y" }}</p>
+  <p>{{ post.excerpt | strip_html | truncatewords: 45 }}</p>
+  <p class="read-more"><a href="{{ post.url | relative_url }}">Read more</a></p>
+</div>

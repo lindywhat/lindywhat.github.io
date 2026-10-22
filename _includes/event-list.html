@@ -1,0 +1,61 @@
+{%- comment -%}
+  Shows the upcoming events from _data/events.yml.
+  Usage: {% include event-list.html %}            all upcoming events
+         {% include event-list.html limit=2 %}    only the first 2
+  Past events are left out when the site is built, and are also hidden by
+  the browser (assets/js/main.js), so the list stays correct between builds.
+{%- endcomment -%}
+{%- assign lang = page.lang | default: site.lang -%}
+{%- assign limit = include.limit | default: 1000 -%}
+{%- assign today = site.time | date: "%Y%m%d" | plus: 0 -%}
+{%- assign shown = 0 -%}
+<div class="event-list{% if include.compact %} event-list-compact{% endif %}" data-limit="{{ limit }}">
+  {%- comment -%}
+    Sort the events by date. Dates can be written in different ways
+    (2026-11-08, 2026-11-08 20:00, "8-11-2026"...), which can't be compared
+    to each other directly. So first turn every date into the same kind of
+    sort key, "202611082000~3" (date and time, then the event's position in
+    the list), and sort those keys instead.
+  {%- endcomment -%}
+  {%- capture sort_keys -%}
+    {%- for event in site.data.events -%}
+      {{ event.date | date: "%Y%m%d%H%M" }}~{{ forloop.index0 }}{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  {%- endcapture -%}
+  {%- assign sort_keys = sort_keys | split: "," | sort -%}
+  {%- for sort_key in sort_keys -%}
+    {%- assign index = sort_key | split: "~" | last | plus: 0 -%}
+    {%- assign event = site.data.events[index] -%}
+    {%- assign first_day_number = sort_key | split: "~" | first | plus: 0 -%}
+    {%- assign last_day = event.end_date | default: event.date -%}
+    {%- assign last_day_number = last_day | date: "%Y%m%d" | plus: 0 -%}
+    {%- comment -%} Events without a readable date are skipped {%- endcomment -%}
+    {%- if first_day_number > 190001010000 and last_day_number >= today -%}
+    {%- assign shown = shown | plus: 1 -%}
+    <article class="event{% if shown > limit %} event-over-limit{% endif %}" data-end="{{ last_day | date: '%Y-%m-%d' }}">
+      <div class="event-date">
+        <span class="event-day">{{ event.date | date: "%-d" }}</span>
+        <span class="event-month">{{ event.date | date: "%b" }}</span>
+      </div>
+      <div class="event-info">
+        <h4 class="event-title">{% if event.link %}<a href="{{ event.link }}">{{ event.title }}</a>{% else %}{{ event.title }}{% endif %}</h4>
+        <p class="event-meta">
+          {{ event.date | date: "%A %-d %B %Y" }}{% if event.end_date %} &ndash; {{ event.end_date | date: "%A %-d %B %Y" }}{% endif %}
+          {% if event.time %}<br>{{ event.time }}{% endif %}
+          {% if event.location %}<br>{{ event.location }}{% endif %}
+        </p>
+        {%- unless include.compact -%}
+        {% if event.description %}<p>{{ event.description }}</p>{% endif %}
+        {% if event.link %}<p><a class="button" href="{{ event.link }}">{% if lang == "nl" %}Meer info{% else %}More info{% endif %}</a></p>{% endif %}
+        {%- endunless -%}
+      </div>
+      {%- if event.image and include.compact != true %}
+      <img class="event-image" src="{{ event.image | relative_url }}" alt="">
+      {%- endif %}
+    </article>
+    {%- endif -%}
+  {%- endfor -%}
+  <p class="no-events"{% if shown > 0 %} hidden{% endif %}>
+    {% if lang == "nl" %}Er staan op dit moment geen events gepland. Houd onze <a href="{{ site.facebook }}">Facebook-pagina</a> in de gaten!{% else %}No upcoming events at the moment. Keep an eye on our <a href="{{ site.facebook }}">Facebook page</a>!{% endif %}
+  </p>
+</div>

@@ -1,0 +1,48 @@
+# =====================================================================
+#  AGENDA / EVENTS
+#  Every event in this list is shown on the Agenda page, in the
+#  "Calendar" on the homepage and as "Next event" in the footer.
+#
+#  Events whose date has passed are hidden automatically, so you
+#  never need to delete old events (but you may, to keep the list short).
+#  The order doesn't matter: events are sorted by date automatically.
+#
+#  To add an event, copy the example below, remove the # signs at the
+#  start of each line, and fill in your own details.
+#
+#  Fields:
+#    title:        name of the event                          (required)
+#    date:         YYYY-MM-DD, e.g. 2026-11-08                (required)
+#                  (a time is allowed too: 2026-11-08 20:00)
+#    end_date:     YYYY-MM-DD, only for events lasting several days
+#    time:         free text, e.g. "15:00 - 19:00"
+#    location:     free text, e.g. "Salsa Tipica, Nijmegen"
+#    description:  one or two sentences
+#    link:         a web address for more info or tickets (e.g. Facebook event)
+#    image:        a picture, e.g. /assets/images/tea-dance.jpg
+# =====================================================================
+
+# - title: "NimmaHop! Sunday Tea Dance"
+#   date: 2026-11-08
+#   time: "15:00 - 19:00"
+#   location: "Salsa Tipica, Nijmegen"
+#   description: "Our monthly Sunday afternoon social dance, with DJs and tea!"
+#   link: https://www.facebook.com/lindynijmegen
+#   image: /assets/images/tea-dance.jpg
+
+
+- title: "NimmaHop! Sunday Tea Dance"
+  date: 2026-12-13
+  time: "15:00 - 19:00"
+  location: "Salsa Tipica, Nijmegen"
+  description: "Our monthly Sunday afternoon social dance, with DJs and tea!"
+  link: https://www.facebook.com/events/2154783422102334
+  image: /assets/images/tea-dance.jpg
+
+- title: "NimmaHop! Sunday Tea Dance"
+  date: 2026-11-08
+  time: "15:00 - 19:00"
+  location: "Salsa Tipica, Nijmegen"
+  description: "Our monthly Sunday afternoon social dance, with DJs and tea!"
+  link: https://www.facebook.com/events/1924174712294867
+  image: /assets/images/tea-dance.jpg

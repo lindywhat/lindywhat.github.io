@@ -1,0 +1,14 @@
+{%- comment -%}
+  Shows a YouTube video. Paste the normal YouTube address:
+    {% include youtube.html url="https://www.youtube.com/watch?v=qkthxBsIeGQ" %}
+  Short links (https://youtu.be/qkthxBsIeGQ) work too.
+{%- endcomment -%}
+{%- if include.id -%}
+  {%- assign video_id = include.id -%}
+{%- else -%}
+  {%- assign video_id = include.url | split: "v=" | last | split: "&" | first | split: "/" | last | split: "?" | first -%}
+{%- endif -%}
+<div class="video">
+  <iframe src="https://www.youtube-nocookie.com/embed/{{ video_id }}" title="YouTube video" loading="lazy"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>

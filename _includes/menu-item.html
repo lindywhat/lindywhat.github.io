@@ -1,0 +1,16 @@
+{%- assign item = include.item -%}
+{%- assign item_url = item.url | relative_url -%}
+{%- capture current -%}{% if page.url == item_url or page.url == item.url %}current{% endif %}{%- endcapture -%}
+<li class="menu-item {{ current }}{% if item.submenu %} has-submenu{% endif %}">
+  <a href="{% if item.url contains '://' %}{{ item.url }}{% else %}{{ item_url }}{% endif %}">
+    {{ item.title }}
+    {% if item.subtitle %}<span class="menu-subtitle">{{ item.subtitle }}</span>{% endif %}
+  </a>
+  {%- if item.submenu %}
+  <ul class="submenu">
+    {%- for sub in item.submenu %}
+    <li><a href="{% if sub.url contains '://' %}{{ sub.url }}{% else %}{{ sub.url | relative_url }}{% endif %}">{{ sub.title }}</a></li>
+    {%- endfor %}
+  </ul>
+  {%- endif %}
+</li>

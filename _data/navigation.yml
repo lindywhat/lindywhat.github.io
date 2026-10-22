@@ -1,0 +1,136 @@
+# =====================================================================
+#  MENUS
+#  The main menu at the top of every page, and the "Information" links
+#  in the footer.
+#
+#  The logo sits in the middle of the menu: items under `left:` appear to
+#  the left of the logo, items under `right:` to the right of it.
+#
+#  Each item has:
+#    title:     the big word in the menu
+#    subtitle:  the small text underneath (optional)
+#    url:       where it links to
+#    submenu:   a list of items that drop down when you hover (optional)
+# =====================================================================
+
+en:
+  left:
+    - title: Home
+      subtitle: sweet home
+      url: /
+    - title: Lindy Hop
+      subtitle: about our passion
+      url: /lindy-hop/
+      submenu:
+        - title: The early era
+          url: /the-early-era/
+        - title: Lindy Hop after WW2
+          url: /the-lindy-hop-after-ww2/
+        - title: Lindy Hop today
+          url: /lindy-hop-today/
+        - title: Swing dancing in Nijmegen
+          url: /dancing-in-nijmegen/
+        - title: Further reading
+          url: /further-reading/
+        - title: Charleston
+          url: /charleston/
+    - title: Lessons
+      subtitle: learn to dance!
+      url: /lindy-hop-lessons/
+      submenu:
+        - title: Lindy Hop lessons
+          url: /lindy-hop-lessons/#LindyHop
+        - title: Solo Jazz lessons
+          url: /lindy-hop-lessons/#SoloJazz
+        - title: Blues lessons
+          url: /lindy-hop-lessons/#Blues
+        - title: Your first lesson
+          url: /your-first-lesson/
+        - title: Balboa lessons
+          url: /lindy-hop-lessons/#Balboa
+        - title: Slowbal lessons
+          url: /lindy-hop-lessons/#Slowbal
+  right:
+    - title: Events
+      subtitle: partytime!
+      url: /events/
+      submenu:
+        - title: NimmaHop!
+          url: /nl/nimmahop-lindy-hop-social-dance-in-nijmegen/
+        - title: What's Hop!? 2026
+          url: https://whats-hop.com/
+    - title: Agenda
+      subtitle: when?!
+      url: /agenda/
+    - title: About us
+      subtitle: happy volunteers
+      url: /about-us/
+      submenu:
+        - title: News & Blog
+          url: /news/
+        - title: Contact us
+          url: /contact-details/
+
+  # The "Information" column in the footer
+  footer:
+    - title: Terms and Conditions
+      url: /tenc/
+    - title: What's Hop T&C
+      url: /whats-hop-festival-terms-and-conditions/
+    - title: Frequently Asked Questions
+      url: /faq/
+    - title: Dancefloor Etiquette
+      url: /etiquette/
+
+
+# The Dutch menu, used on pages that have `lang: nl` at the top
+nl:
+  left:
+    - title: Home
+      subtitle: sweet home
+      url: /nl/
+    - title: Lindy Hop
+      subtitle: over onze passie
+      url: /lindy-hop/
+      submenu:
+        - title: Het eerste tijdperk
+          url: /nl/het-eerste-tijdperk/
+        - title: De Lindy Hop na WO2
+          url: /nl/de-lindy-hop-na-wo2/
+        - title: Lindy Hop heden
+          url: /nl/lindy-hop-heden/
+        - title: Swing dansen in Nijmegen
+          url: /nl/dansen-in-nijmegen/
+    - title: Lessen
+      subtitle: leer dansen!
+      url: /lindy-hop-lessons/
+  right:
+    - title: Events
+      subtitle: feest!
+      url: /events/
+      submenu:
+        - title: NimmaHop!
+          url: /nl/nimmahop-lindy-hop-social-dance-in-nijmegen/
+        - title: What's Hop!? 2026
+          url: https://whats-hop.com/
+    - title: Agenda
+      subtitle: wanneer?!
+      url: /agenda/
+    - title: Over ons
+      subtitle: blije vrijwilligers
+      url: /about-us/
+      submenu:
+        - title: Nieuws
+          url: /news/
+        - title: Contact
+          url: /contact-details/
+
+  footer:
+    - title: Algemene voorwaarden
+      url: /tenc/
+    - title: What's Hop T&C
+      url: /whats-hop-festival-terms-and-conditions/
+    - title: Veelgestelde vragen
+      url: /faq/
+    - title: Etiquette op de dansvloer
+      url: /etiquette/

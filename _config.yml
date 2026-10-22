@@ -1,0 +1,61 @@
+# =====================================================================
+#  SITE SETTINGS
+#  General information used on every page of the website.
+#  After changing this file, the website rebuilds automatically on GitHub
+#  (when previewing locally you have to restart `jekyll serve`).
+# =====================================================================
+
+title: "Lindy What? Lindy Hop Nijmegen"
+description: "Lindy Hop lessons and events by a community passionate about the social dance culture of the swing jazz era"
+
+# Contact details, shown in the footer and on the contact page
+email: lindynijmegen@gmail.com
+facebook: https://www.facebook.com/lindynijmegen
+
+# Text at the very bottom of every page
+copyright: "© Lindy What?! Lindy Hop Nijmegen, photography by Koen van Langen"
+
+# Address that the newsletter sign-up form (in the footer) sends to (Mailchimp)
+newsletter_form: "https://lindynijmegen.us5.list-manage.com/subscribe/post?u=b814eb21f51566fd88fb0a638&id=0e7138493d&f_id=0026ede6f0"
+newsletter_hidden_field: "b_b814eb21f51566fd88fb0a638_0e7138493d"
+
+
+# ---------------------------------------------------------------------
+#  Technical settings - you normally don't need to change anything below
+# ---------------------------------------------------------------------
+
+url: "https://www.lindynijmegen.org"
+baseurl: ""
+lang: en
+timezone: Europe/Amsterdam
+
+# News posts (in the _posts folder) get an address like /news/title-of-the-post/
+permalink: /news/:title/
+
+markdown: kramdown
+
+plugins:
+  - jekyll-redirect-from
+  - jekyll-seo-tag
+  - jekyll-feed
+
+# Default settings, so pages don't need to repeat them
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: page
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+exclude:
+  - README.md
+  - CLAUDE.md
+  - HOW-TO-EDIT.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .github
