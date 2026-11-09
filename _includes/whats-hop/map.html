@@ -1,0 +1,9 @@
+{%- comment -%}
+  A map with coloured pins.
+  Use:  {% include whats-hop/map.html %}
+  The pins are listed under `map:` at the top of the page, each with
+  title, lat and lng (find these by right-clicking a spot in Google Maps)
+  and a colour.
+{%- endcomment -%}
+<div id="wh-map" class="wh-map" data-pins='{{ page.map | jsonify | replace: "'", "&#39;" }}'></div>
+<noscript><ul>{% for pin in page.map %}<li><a href="https://www.openstreetmap.org/?mlat={{ pin.lat }}&amp;mlon={{ pin.lng }}#map=17/{{ pin.lat }}/{{ pin.lng }}">{{ pin.title }}</a></li>{% endfor %}</ul></noscript>

@@ -50,6 +50,15 @@ defaults:
       type: posts
     values:
       layout: post
+  # What's Hop!? festival pages (the whats-hop folder)
+  - scope:
+      path: "whats-hop"
+    values:
+      layout: whats-hop-page
+  - scope:
+      path: "whats-hop/artists"
+    values:
+      layout: whats-hop-artist
 
 exclude:
   - README.md

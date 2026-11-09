@@ -1,0 +1,33 @@
+{%- assign wh = site.data.whats_hop -%}
+<footer class="wh-footer">
+  <div class="wh-container">
+    <div class="wh-footer-cols">
+      <div>
+        <a href="{{ '/whats-hop/' | relative_url }}"><img src="{{ '/assets/whats-hop/images/whkogogrootlight-2.png' | relative_url }}" alt="What's Hop!?"></a>
+        <p>{{ wh.footer_festival_text }}</p>
+      </div>
+      <div>
+        <a href="{{ '/' | relative_url }}"><img src="{{ '/assets/whats-hop/images/logotmp-2s2.png' | relative_url }}" alt="Lindy What?! Nijmegen"></a>
+        <p>{{ wh.footer_community_text }}</p>
+      </div>
+      <div class="wh-footer-follow">
+        <h3>Follow us</h3>
+        <ul>
+          {%- for link in wh.follow %}
+          {%- assign external = link.url | slice: 0, 4 -%}
+          {%- if link.icon == 'globe' or link.icon == 'envelope' -%}{%- assign family = 'fa-solid' -%}{%- else -%}{%- assign family = 'fa-brands' -%}{%- endif %}
+          <li><a href="{{ link.url | relative_url }}"{% if external == 'http' %} target="_blank" rel="noopener"{% endif %}><i class="{{ family }} fa-{{ link.icon }}"></i> {{ link.title }}</a></li>
+          {%- endfor %}
+        </ul>
+      </div>
+    </div>
+    <div class="wh-footer-bottom">
+      <nav>
+        {%- for link in wh.footer_links %}
+        <a href="{{ link.url | relative_url }}">{{ link.title }}</a>
+        {%- endfor %}
+      </nav>
+      <p>{{ wh.copyright }}</p>
+    </div>
+  </div>
+</footer>

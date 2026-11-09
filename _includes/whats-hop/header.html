@@ -1,0 +1,30 @@
+{%- assign wh = site.data.whats_hop -%}
+<header class="wh-header{% if page.layout == 'whats-hop-artist' %} solid{% endif %}">
+  <div class="wh-container">
+    <a class="wh-logo" href="{{ '/whats-hop/' | relative_url }}">
+      <img src="{{ '/assets/whats-hop/images/logotrans-1-white.png' | relative_url }}" alt="What's Hop!?" width="160" height="43">
+    </a>
+    <button class="wh-menu-toggle" aria-expanded="false" aria-controls="wh-menu" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="wh-menu" class="wh-menu" aria-label="Main menu">
+      <ul>
+        {%- for item in wh.menu -%}
+          {%- assign current = false -%}
+          {%- if item.url == page.url -%}{%- assign current = true -%}{%- endif -%}
+          {%- for sub in item.submenu -%}{%- if sub.url == page.url -%}{%- assign current = true -%}{%- endif -%}{%- endfor %}
+        <li class="{% if item.submenu %}has-sub{% endif %}{% if current %} current{% endif %}">
+          <a href="{% if item.url %}{{ item.url | relative_url }}{% else %}#{% endif %}">{{ item.title }}</a>
+          {%- if item.submenu %}
+          <ul class="sub">
+            {%- for sub in item.submenu %}
+            <li{% if sub.url == page.url %} class="current"{% endif %}><a href="{{ sub.url | relative_url }}">{{ sub.title }}</a></li>
+            {%- endfor %}
+          </ul>
+          {%- endif %}
+        </li>
+        {%- endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>

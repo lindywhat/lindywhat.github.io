@@ -1,0 +1,17 @@
+---
+layout: whats-hop
+---
+{%- comment -%}
+  The festival homepage: a photo behind the whole page, the big logo with
+  the tagline, and the text in a box on top of the photo.
+{%- endcomment -%}
+<div class="wh-home-bg" style="background-image: url('{{ page.background | relative_url }}')">
+  <div class="wh-home-hero">
+    <img src="{{ '/assets/whats-hop/images/whkogogrootlight-1024x726.png' | relative_url }}" alt="What's Hop!?" width="300" height="213">
+    <p>{{ page.tagline }}</p>
+  </div>
+
+  <main class="wh-boxed">
+    {% include whats-hop/sections.html html=content %}
+  </main>
+</div>

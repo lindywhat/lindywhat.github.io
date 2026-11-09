@@ -1,0 +1,15 @@
+---
+layout: whats-hop
+---
+{%- comment -%}
+  A normal festival page: a big photo with the title, then the text.
+  Every "## Heading" in the text starts a new block (see HOW-TO-EDIT.md).
+{%- endcomment -%}
+{%- assign hero = page.hero | default: '/assets/whats-hop/images/WhatsHop-129-bg-desktop.webp' -%}
+<div class="wh-hero" style="background-image: url('{{ hero | relative_url }}')">
+  <h1>{{ page.title }}</h1>
+</div>
+
+<main class="wh-sections{% if page.faq %} wh-faq{% endif %}">
+  {% include whats-hop/sections.html html=content %}
+</main>

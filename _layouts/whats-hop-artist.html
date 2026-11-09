@@ -1,0 +1,36 @@
+---
+layout: whats-hop
+---
+{%- comment -%}
+  Page about one artist (teacher, band, DJ) or venue.
+  Photo, website, address, video and social media links come from the
+  top of the page file (front matter).
+{%- endcomment -%}
+<div class="wh-profile">
+  <div class="wh-container">
+    {% if page.photo %}<img src="{{ page.photo | relative_url }}" alt="{{ page.title }}" width="160" height="160">{% endif %}
+    <div>
+      <h1>{{ page.title }}</h1>
+      {% if page.address %}<p>{{ page.address }}</p>{% endif %}
+      {% if page.website %}<p><a href="{{ page.website }}" target="_blank" rel="noopener"><i class="fa-solid fa-link"></i> {{ page.website }}</a></p>{% endif %}
+    </div>
+  </div>
+</div>
+
+<main>
+  <section class="wh-section cream">
+    <div class="wh-container">
+      {{ content }}
+
+      {% if page.video %}{% include youtube.html url=page.video %}{% endif %}
+
+      {% if page.instagram or page.facebook or page.youtube %}
+      <div class="wh-social">
+        {% if page.instagram %}<a class="instagram" href="{{ page.instagram }}" target="_blank" rel="noopener" title="Instagram"><i class="fa-brands fa-instagram"></i></a>{% endif %}
+        {% if page.facebook %}<a class="facebook" href="{{ page.facebook }}" target="_blank" rel="noopener" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>{% endif %}
+        {% if page.youtube %}<a class="youtube" href="{{ page.youtube }}" target="_blank" rel="noopener" title="YouTube"><i class="fa-brands fa-youtube"></i></a>{% endif %}
+      </div>
+      {% endif %}
+    </div>
+  </section>
+</main>

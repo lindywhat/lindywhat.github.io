@@ -1,0 +1,35 @@
+<!doctype html>
+{%- comment -%}
+  Base template for all What's Hop!? festival pages (everything under /whats-hop/).
+  The menu and footer texts are in _data/whats_hop.yml.
+{%- endcomment -%}
+{%- assign wh = site.data.whats_hop -%}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% seo title=false %}
+  <title>{% if page.url == "/whats-hop/" %}{{ wh.site_title }}{% else %}{{ page.title }} - {{ wh.site_title }}{% endif %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  {%- if page.map %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  {%- endif %}
+  <link rel="stylesheet" href="{{ '/assets/whats-hop/whats-hop.css' | relative_url }}">
+  <link rel="icon" href="{{ '/assets/whats-hop/images/logotrans-1-white.png' | relative_url }}">
+</head>
+<body class="wh">
+  {% include whats-hop/header.html %}
+
+  {{ content }}
+
+  {% include whats-hop/footer.html %}
+
+  {%- if page.map %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  {%- endif %}
+  <script src="{{ '/assets/whats-hop/whats-hop.js' | relative_url }}"></script>
+</body>
+</html>

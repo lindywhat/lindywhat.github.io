@@ -1,0 +1,79 @@
+# =====================================================================
+#  WHAT'S HOP!? FESTIVAL - GENERAL SETTINGS
+#  Used on every page under /whats-hop/ (menu, footer, browser tab).
+#  Keep the spaces at the start of each line exactly as they are.
+# =====================================================================
+
+# Shown in the browser tab after the page title
+site_title: "What's Hop 2026 - Nijmegen Lindy Hop at its finest!"
+
+# E-mail address of the festival team
+email: whatshopnijmegen@gmail.com
+
+
+# ---------------------------------------------------------------------
+#  MENU at the top of every festival page
+#  An item with a `submenu:` drops down when you hover over it.
+# ---------------------------------------------------------------------
+menu:
+  - title: Home
+    url: /whats-hop/
+  - title: Program
+    submenu:
+      - title: Workshops
+        url: /whats-hop/workshops/
+      - title: Depth in Dance
+        url: /whats-hop/depth-in-dance/
+      - title: Parties
+        url: /whats-hop/parties/
+      - title: Venues
+        url: /whats-hop/venues/
+  - title: Registration
+    submenu:
+      - title: Tickets
+        url: /whats-hop/tickets/
+      - title: Levels
+        url: /whats-hop/levels/
+      - title: Terms & Conditions
+        url: /whats-hop/terms-conditions/
+      - title: Code of Conduct
+        url: /whats-hop/code-of-conduct/
+  - title: About
+    submenu:
+      - title: What!?
+        url: /whats-hop/what/
+      - title: FAQ
+        url: /whats-hop/faq/
+      - title: The Routine
+        url: /whats-hop/routine/
+
+
+# ---------------------------------------------------------------------
+#  FOOTER (the dark green block at the bottom)
+# ---------------------------------------------------------------------
+footer_festival_text: "A Lindy Hop festival in Nijmegen organized by Lindy What?! since 2019."
+footer_community_text: "A dance community in Nijmegen organizing dance classes, workshops and social events."
+
+# The "Follow us" links. `icon` can be: facebook, youtube, instagram, globe, envelope
+follow:
+  - title: "Whats Hop!? Event"
+    url: https://www.facebook.com/events/s/whats-hop-2026/837735375257568/
+    icon: facebook
+  - title: Lindynijmegen
+    url: https://www.facebook.com/lindynijmegen
+    icon: facebook
+  - title: "Lindy What? Nijmegen"
+    url: https://www.youtube.com/@lindywhatnijmegen2191
+    icon: youtube
+  - title: lindynijmegen.org
+    url: /
+    icon: globe
+
+# Small links at the very bottom
+footer_links:
+  - title: Terms & Conditions
+    url: /whats-hop/terms-conditions/
+  - title: FAQ
+    url: /whats-hop/faq/
+
+copyright: "Copyright © Lindy What!? 2025 All rights reserved"

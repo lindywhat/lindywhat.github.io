@@ -13,10 +13,14 @@ _config.yml           Site-wide settings: e-mail, Facebook, newsletter, copyrigh
 _data/
   events.yml          The agenda: all events (past ones are hidden automatically)
   navigation.yml      Top menu and footer links (English and Dutch)
+  whats_hop.yml       Festival menu, footer texts and e-mail
 index.md              The homepage (slider photos, welcome text, three blocks)
 pages/                All other pages, one Markdown file per page
   nl/                 Dutch pages
 _posts/               News posts, one file per post (YYYY-MM-DD-title.md)
+whats-hop/            The What's Hop!? festival site (served at /whats-hop/)
+  artists/            One page per artist or venue
+assets/whats-hop/     Festival photos (images/), stylesheet and script
 assets/
   images/             Photos and pictures used in pages
   images/news/        Pictures used in news posts

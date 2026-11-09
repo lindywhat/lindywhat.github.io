@@ -1,0 +1,28 @@
+{%- comment -%}
+  Tabs: buttons that switch between pictures/texts (schedules, history).
+  Use:  {% include whats-hop/tabs.html tabs=page.schedule %}
+  Each tab in the list (at the top of the page) can have:
+    title    the text on the button (required)
+    heading  a title shown above the content
+    image    one big picture (e.g. a schedule)
+    photos   a list of photos that you can swipe through
+    text     some text (Markdown)
+{%- endcomment -%}
+<div class="wh-tabs">
+<div class="wh-tabs-buttons" role="tablist">
+{%- for tab in include.tabs %}
+<button type="button" role="tab"{% if forloop.first %} class="active" aria-selected="true"{% else %} aria-selected="false"{% endif %}>{{ tab.title }}</button>
+{%- endfor %}
+</div>
+{%- for tab in include.tabs %}
+<div class="wh-tab{% if forloop.first %} active{% endif %}" role="tabpanel">
+<h3 class="tab-title">{{ tab.title }}</h3>
+{%- if tab.heading %}<h3>{{ tab.heading }}</h3>{% endif %}
+{%- if tab.image %}<a href="{{ tab.image | relative_url }}" target="_blank"><img src="{{ tab.image | relative_url }}" alt="{{ tab.title }}" loading="lazy"></a>{% endif %}
+{%- if tab.photos %}
+<div class="wh-photos">{% for photo in tab.photos %}<img src="{{ photo | relative_url }}" alt="" loading="lazy">{% endfor %}</div>
+{%- endif %}
+{%- if tab.text %}<div class="wh-tab-text">{{ tab.text | markdownify }}</div>{% endif %}
+</div>
+{%- endfor %}
+</div>

@@ -143,6 +143,77 @@ Open `_data/navigation.yml`. The English menu is under `en:`, the Dutch one unde
 Items under `left:` appear left of the logo, items under `right:` to the right.
 Again: keep the spaces at the start of each line the same as the lines around it.
 
+## The What's Hop!? festival pages (/whats-hop/)
+
+The festival has its own look, but is edited the same way. Everything is in the `whats-hop`
+folder:
+
+| I want to change...                               | Edit this file                          |
+|---------------------------------------------------|-----------------------------------------|
+| Festival homepage (dates, intro, lineup of artists)| `whats-hop/index.md`                    |
+| Workshops, Parties, Venues, Tickets, FAQ, ...     | the file with that name in `whats-hop/` |
+| A page about an artist or venue                   | `whats-hop/artists/<name>.md`           |
+| The festival menu, footer texts, e-mail address   | `_data/whats_hop.yml`                   |
+| Festival photos                                   | upload to `assets/whats-hop/images/`    |
+
+### Blocks
+
+Every `## Heading` on a festival page starts a new block. Blocks are grey and cream in turn.
+To choose the colour yourself, put a line directly under the heading:
+
+```markdown
+## Care Team
+{: .grey}
+```
+
+Options: `.grey`, `.cream`, `.white`, `.center` (heading in the middle) and `.columns`
+(text in two columns). You can combine them: `{: .grey .center}`.
+
+### Photos next to the text
+
+Put `{: .right}` or `{: .left}` directly after a picture to place it beside the text:
+
+```markdown
+![Our venue](/assets/whats-hop/images/venue.jpg){: .right}
+```
+
+Two pictures next to each other: put `{: .half}` after both.
+
+### The big photo at the top
+
+Each page has a line `hero: /assets/whats-hop/images/...` at the top. Change it to use another photo.
+
+### Lineup, tickets, schedules, history, map
+
+These are lists at the top of the page (between the `---` lines), with an explanation of every
+field in the file itself:
+
+* **Lineup of artists** — `lineup:` in `whats-hop/index.md`. Copy one artist (3 lines) to add one.
+* **Tickets** — `tickets:` in `whats-hop/tickets.md`. Put the registration form address after
+  `link:` to make the Buy button work, and change `status:` (e.g. to `Registration open!`).
+* **Schedules** — `schedule:` in `whats-hop/workshops.md`: one tab per picture.
+* **History** — `history:` in `whats-hop/what.md`: one tab per year.
+* **Map pins** — `map:` in `whats-hop/venues.md`.
+
+### FAQ
+
+In `whats-hop/faq.md`, every `### Question` becomes a question that opens when you click it.
+The text below it is the answer.
+
+### A new artist page
+
+Copy an existing file in `whats-hop/artists/`, give it a new name (e.g. `new-band.md`), and
+change the top: `title`, `permalink` (e.g. `/whats-hop/artists/new-band/`), `photo` (round
+picture), and optionally `website`, `video` (a YouTube address), `instagram`, `facebook`,
+`youtube`. Then add the artist to the `lineup:` on the festival homepage.
+
+### Preparing next year's edition
+
+1. Add the past year to `history:` in `whats-hop/what.md`.
+2. Change the dates and texts on `whats-hop/index.md` and replace the `lineup:`.
+3. Update tickets, schedules and the other pages.
+4. Change the year in `site_title` and `copyright` in `_data/whats_hop.yml`.
+
 ## Something went wrong?
 
 If the website doesn't update after a few minutes, there is probably a typo (often in the

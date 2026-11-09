@@ -1,0 +1,29 @@
+{%- comment -%}
+  The list of tickets with price and Buy button.
+  Use:  {% include whats-hop/tickets.html %}
+  The tickets themselves are listed under `tickets:` at the top of the page.
+{%- endcomment -%}
+<div class="wh-tickets">
+{%- for ticket in page.tickets %}
+<div class="wh-ticket">
+<div>
+<h3>{{ ticket.name }}</h3>
+{%- if ticket.details %}
+<ul>{% for line in ticket.details %}<li>{{ line | markdownify | remove: '<p>' | remove: '</p>' | strip }}</li>{% endfor %}</ul>
+{%- endif %}
+</div>
+<div class="price">{{ ticket.price }}</div>
+<div class="buy">
+{%- if ticket.link %}
+<a class="button" href="{{ ticket.link }}" target="_blank" rel="noopener">{{ ticket.button | default: "Buy" }}</a>
+{%- else %}
+<span class="button">{{ ticket.button | default: "Buy" }}</span>
+{%- endif %}
+{%- if ticket.status %}<span class="status">{{ ticket.status }}</span>{% endif %}
+</div>
+</div>
+{%- if ticket.note %}
+<div class="wh-ticket-note">{{ ticket.note | markdownify }}</div>
+{%- endif %}
+{%- endfor %}
+</div>

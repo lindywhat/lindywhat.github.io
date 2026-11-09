@@ -1,0 +1,15 @@
+{%- comment -%}
+  A grid of photos with a name underneath (artists on the homepage, venues).
+  Use:  {% include whats-hop/cards.html cards=page.lineup %}
+  Add columns=2 for two photos per row instead of three.
+  Each card in the list (at the top of the page) has: name, image, link (optional).
+{%- endcomment -%}
+<div class="wh-cards{% if include.columns == 2 %} two{% endif %}">
+{%- for card in include.cards %}
+{%- if card.link %}
+<a class="wh-card" href="{{ card.link | relative_url }}"><img src="{{ card.image | relative_url }}" alt="{{ card.name }}" loading="lazy"><span>{{ card.name }}</span></a>
+{%- else %}
+<div class="wh-card"><img src="{{ card.image | relative_url }}" alt="{{ card.name }}" loading="lazy"><span>{{ card.name }}</span></div>
+{%- endif %}
+{%- endfor %}
+</div>

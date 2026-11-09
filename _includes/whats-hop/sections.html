@@ -1,0 +1,21 @@
+{%- comment -%}
+  Cuts the page text into blocks: every <h2> (a "## Heading" in Markdown)
+  starts a new block. Classes written under the heading, like {: .grey .center},
+  are put on the whole block.
+{%- endcomment -%}
+{%- assign chunks = include.html | split: '<h2' -%}
+{%- for chunk in chunks -%}
+  {%- if forloop.first -%}
+    {%- assign stripped = chunk | strip -%}
+    {%- if stripped != "" %}
+<section class="wh-section"><div class="wh-container">{{ chunk }}</div></section>
+    {%- endif -%}
+  {%- else -%}
+    {%- assign head = chunk | split: '>' | first -%}
+    {%- assign classes = "" -%}
+    {%- if head contains 'class="' -%}
+      {%- assign classes = head | split: 'class="' | last | split: '"' | first -%}
+    {%- endif %}
+<section class="wh-section {{ classes }}"><div class="wh-container"><h2{{ chunk }}</div></section>
+  {%- endif -%}
+{%- endfor -%}

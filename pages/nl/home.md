@@ -41,4 +41,4 @@ cards:
 
 We zijn een collectief enthousiaste vrijwilligers die zich inzet voor het verspreiden van de sociale dans cultuur uit het swing jazz tijdperk, voornamelijk de Lindy Hop, in onze mooie stad Nijmegen. We organiseren dans lessen, workshops en evenementen met live muziek. Onze organisatie is opgericht in 2014 en bestaat volledig uit vrijwilligers, met als uitgangspunt het delen van de sociale en plezierige dans Lindy Hop. **Hierbij is inclusiviteit en het loslaten van een normatieve zienswijze op dans en mens een belangrijk fundament.**
 
-## [Klik hier voor alle informatie over What's Hop!?](https://whats-hop.com/)
+## [Klik hier voor alle informatie over What's Hop!?](/whats-hop/)
